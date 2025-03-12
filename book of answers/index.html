@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page of answers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="theForm" onsubmit="getAnswer(event)">
+        <input type="text" id="question" name="question" required style="width: 60vw;" placeholder="Ask a closed-ended question.">
+        <input type="submit" value="Ask">
+    </form>
+    <div id="answerContainer">
+        <h1 id="theAnswer"></h1>
+    </div>
+    <div class="Return"><a href="https://coburnius.net/creations.html"><img src="../images/return.png"></div>
+</body>
+<script src="scripts.js"></script>
+</html>
