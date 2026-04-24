@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tomodachi Life: LTD Personality Calculator</title>
 </head>
 <body>
-    <p>This is a quick tool to calculate what personality will be picked when making a Mii. Right now it only shows the name of the personalities, 
-        and not the detailed info regarding it. This will be added later. Both NTSC and PAL terms are shown.</p>
+    <p>This is a quick tool to calculate what personality will be picked when making a Mii. Both NTSC and PAL terms are shown.</p>
     <table id="personalityInputTable">
         <tr>
             <td>Movement</td>
@@ -62,7 +61,7 @@
             </td>
         </tr>
         <tr>
-            <td>Overall</td>
+            <td>Overall*</td>
             <td>
                 <input type="radio" name="overall" checked>
                 <input type="radio" name="overall">
@@ -75,7 +74,8 @@
             </td>
         </tr>
     </table>
-    <p id="personalityOutput" style="font-weight: bold;">n/a</p>
+    <i>*Has no effect on the personality, only affects general behavior of the mii.</i>
+    <p id="personalityOutput">n/a</p>
 </body>
 <script src="scripts.js"></script>
 </html>
