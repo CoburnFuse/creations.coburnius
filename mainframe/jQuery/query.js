@@ -46,6 +46,9 @@ function load() {
 
 function panic() {
     $("#error").animate({height: "100%"},{duration: 15000});
+    setTimeout(function() {
+        window.location.reload(true);
+    }, 20000);
 }
 
 
@@ -64,46 +67,36 @@ $(document).ready(function(){
             $("#console").append(input + "</br>")
             $("input").val("")
             if (inputSp[0] == "help" || inputSp[0] == "commands") {
-                document.getElementById("goodInput").play();
                 commands()
             } else if (inputSp[0] == "dir" || inputSp[0] == "ls") {
                 $("#console").append("current directory: " + dir + "</br>")
-                document.getElementById("goodInput").play();
                 dirList()
             } else if (inputSp[0] == "clear" || inputSp[0] == "clr") {
-                document.getElementById("goodInput").play();
                 empty()
             } else if (inputSp[0] == "hello") {
-                document.getElementById("goodInput").play();
                 $("#console").append("Hello world!</br>")
             } else if (inputSp[0] == "cd") {
                 if(inputSp.length == 2) {
                     if (inputSp[1] == directories[0]) {
                         dir = "files"
                         $("#console").append( dir + "</br>")
-                        document.getElementById("goodInput").play();
                         reloadSide()
                     } else if (inputSp[1] == directories[1]) {
                         dir = "images"
                         $("#console").append( dir + "</br>")
-                        document.getElementById("goodInput").play();
                         reloadSide()
                     } else if (inputSp[1] == directories[2]) {
                         if (admin == true) {
                             dir = "debug"
                             $("#console").append( dir + "</br>")
-                            document.getElementById("goodInput").play();
                             reloadSide()
                         } else {
-                            document.getElementById("badInput").play();
                             $("#console").append("access denied, admin access required</br>")
                         }
                     } else {
-                        document.getElementById("badInput").play();
                         $("#console").append("invalid folder</br>")
                     }
                 } else {
-                    document.getElementById("badInput").play();
                     $("#console").append("correct usage: cd /folder </br>")
                 }
             } else if(inputSp[0] == "login") {
@@ -112,31 +105,24 @@ $(document).ready(function(){
                         admin = true
                         user = inputSp[1]
                         $("#console").append("password accepted, admin logged in</br>")
-                        document.getElementById("goodInput").play();
                         reloadSide()
                     } else if (inputSp[1] == users[1] && inputSp[2] == passwords[1]) {
                         user = inputSp[1]
                         admin = false
                         $("#console").append("password accepted, " + inputSp[1] + " logged in</br>")
-                        document.getElementById("goodInput").play();
                         reloadSide()
                     } else {
-                        document.getElementById("badInput").play();
                         $("#console").append("invalid username or password</br>")
                     }
                 } else {
-                    document.getElementById("badInput").play();
                     $("#console").append("correct usage: login /user /password </br>")
                 }
             } else if(inputSp[0] == "users") {
                 userList()
-                document.getElementById("goodInput").play();
             } else if(inputSp[0] == "error") {
-                document.getElementById("panicSnd").play();
                 panic()
             } else {
                 $("#console").append("invalid command or filename</br>")
-                document.getElementById("badInput").play();
             }
         }
     });
