@@ -45,8 +45,6 @@ function load() {
 }
 
 function panic() {
-    document.getElementById("bgm").pause();
-    document.getElementById("panic").play();
     $("#error").animate({height: "100%"},{duration: 15000});
 }
 
